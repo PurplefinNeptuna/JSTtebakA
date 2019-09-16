@@ -1,4 +1,4 @@
-﻿namespace JST {
+namespace JST {
 
 	public interface INode {
 		double GetOutput();
