@@ -6,7 +6,7 @@ namespace JST {
 	public class OutputNode : INode {
 
 		public Neuron outputNeuron;
-		public double target, doErrorDoOut;
+		public double target = 0f, doErrorDoOut = 0f;
 
 		public OutputNode(Neuron output) {
 			outputNeuron = output;

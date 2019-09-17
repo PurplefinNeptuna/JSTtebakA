@@ -1,11 +1,13 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace JST {
 
 	[Serializable]
 	public class Neuron : INode {
-		public double bias, lastNet, lastOutput, doErrorDoOutput, doErrorDoNet, learningRate;
+		public double bias = 0f, lastNet = 0f, lastOutput = 0f, doErrorDoOutput = 0f, doErrorDoNet = 0f, learningRate = 0f;
+		public int layer = 0;
 		public List<double> theta = new List<double>();
 		public List<INode> inputNodes = new List<INode>();
 		public List<ValueTuple<INode, int>> outputNodes = new List < (INode, int) > ();
@@ -119,6 +121,22 @@ namespace JST {
 					inputNodes.Add(null);
 				}
 			}
+		}
+
+		private double Randomizer() {
+			float limit = Mathf.Sqrt(6f / (inputNodes.Count + outputNodes.Count));
+			double rnd = 0f;
+			while (Math.Abs(rnd) <= 0.01f) {
+				rnd = UnityEngine.Random.Range(-limit, limit);
+			}
+			return rnd;
+		}
+
+		public void ResetTheta() {
+			for (int i = 0; i < theta.Count; i++) {
+				theta[i] = Randomizer();
+			}
+			bias = Randomizer();
 		}
 	}
 }

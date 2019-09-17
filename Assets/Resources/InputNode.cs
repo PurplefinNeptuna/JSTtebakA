@@ -4,7 +4,7 @@ namespace JST {
 
 	[Serializable]
 	public class InputNode: INode {
-		public double value;
+		public double value = 0f;
 
 		public InputNode() {
 			value = 0f;
