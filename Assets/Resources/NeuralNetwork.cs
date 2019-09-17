@@ -224,5 +224,15 @@ namespace JST {
 			ResetTheta();
 			Traverse();
 		}
+
+		public List<Neuron> NeuronInLayer(int layerId){
+			List<Neuron> ans = new List<Neuron>();
+			foreach(var neuron in allNeurons){
+				if(neuron.layer == layerId){
+					ans.Add(neuron);
+				}
+			}
+			return ans;
+		}
 	}
 }

@@ -27,7 +27,7 @@ namespace JST {
 		}
 
 		public static List<int> GetPredictionFromInput(this NeuralNetwork nn, BitArray input) {
-			nn.SetInput(input.GetInputData(false));
+			nn.SetInput(input.GetInputData(true));
 			return nn.GetPrediction();
 		}
 
